@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM STREAM IMPLEMENTATION</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 flex gap-16 items-center justify-center min-h-screen">
+    <div class="w-full max-w-lg bg-white rounded-lg shadow-lg p-6">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Query and Stream Forms</h1>
+
+        <!-- Normal Form -->
+        <form id="normal-form" class="mb-8">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Normal Query</h2>
+            <div class="mb-4">
+                <label for="normal-query" class="block text-sm font-medium text-gray-600 mb-1">Chat Query</label>
+                <textarea id="normal-query" name="query" rows="5" placeholder="Enter chat query"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Generate a long story about old west cowboy who stole the gold from the bank at least 4 paragraphs.
+                </textarea>
+            </div>
+            <button type="submit"
+                class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Submit Query
+            </button>
+        </form>
+
+        <!-- Stream Form -->
+        <form id="stream-form">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Stream Query</h2>
+            <div class="mb-4">
+                <label for="stream-query" class="block text-sm font-medium text-gray-600 mb-1">Chat Query</label>
+                <textarea id="stream-query" name="query" rows="3" placeholder="Enter chat query"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    Generate a long story about old west cowboy who stole the gold from the bank at least 4 paragraphs.
+                </textarea>
+            </div>
+            <button type="submit"
+                class="w-full bg-green-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+                Stream Query
+            </button>
+        </form>
+    </div>
+
+    <div class="w-full max-w-2xl min-h-185 max-h-185 bg-white rounded-lg shadow-lg p-6 overflow-y-auto">
+        <div class="flex items-center justify-between">
+            <h1 class="font-bold text-xl">See The Response Here</h1>
+            <p id="elapsed-time" class="text-sm"></p>
+        </div>
+
+        <div id="response-container" class="mt-4"></div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+
+</html>
